@@ -15,10 +15,11 @@ database.
 For example:
 
     var through = require("through2");
+    vor bufferingObjectStream = require("buffering-object-stream");
 
     createSomeObjectStream()
       .pipe(bufferingObjectStream(4))
-      .pipe(through(function (objects, enc, cb) {
+      .pipe(through.obj(function (objects, enc, cb) {
         console.log("Got objects: ", objects);
         cb();
       });
